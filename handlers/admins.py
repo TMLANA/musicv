@@ -36,7 +36,7 @@ BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("🏡 ", callback_data
 
 # remove the ( # ) if you want the auto del cmd feature is on
 
-@Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["تحديث", f"reload@{BOT_USERNAME}"]) & other_filters)
 async def update_admin(client, message):
     global admins
     new_admins = []
@@ -48,7 +48,7 @@ async def update_admin(client, message):
 
 
 # Control Menu Of Player
-@Client.on_message(command(["control", f"control@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["لوحة التحكم", f"control@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def controlset(_, message: Message):
@@ -92,7 +92,7 @@ async def controlset(_, message: Message):
     )
 
 
-@Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["ايقاف", f"pause@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
@@ -106,7 +106,7 @@ async def pause(_, message: Message):
         await message.reply_text("⏸ **تم إيقاف المسار مؤقتا.**\n\n• **لاستئناف التشغيل، استخدم** » `/resume` الاوامر.")
 
 
-@Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["استمرار", f"resume@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -120,7 +120,7 @@ async def resume(_, message: Message):
         await message.reply_text("▶️ **تم استئناف المسار.**\n\n• **لإيقاف التشغيل مؤقتا، استخدم** » `/pause` الاوامر.")
 
 
-@Client.on_message(command(["stop", f"stop@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["انهاء", f"stop@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -137,7 +137,7 @@ async def stop(_, message: Message):
         await message.reply_text("✅ **انتهت الموسيقى التشغيل**")
 
 
-@Client.on_message(command(["skip", f"skip@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["تخطي", f"skip@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def skip(_, message: Message):
