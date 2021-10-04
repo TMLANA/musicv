@@ -414,13 +414,13 @@ async def m_cb(b, cb):
             await cb.answer("assistant is not connected to voice chat !", show_alert=True)
 
 
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["تشغيل", f"play@{BOT_USERNAME}"]) & other_filters)
 async def play(_, message: Message):
     global que
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔎 **Searching...**")
+    lel = await message.reply("🔎 **جاري البحث والمعالجة لا ترسل شيئ...**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -444,23 +444,23 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>💡 To use me, I need to be an Administrator with the permissions:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload</b>",
+                        "<b>يجب اعطائي كامل الصلاحيات قبل استخدامي ♥</b>",
                     )
                     return
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "🤖: i'm joined to this group for playing music on voice chat"
+                        message.chat.id, "🤖: لقد انضممت إلى هذه المجموعة لتشغيل الموسيقى على الدردشة الصوتية‌‌"
                     )
                     await lel.edit(
-                        f"✅ **userbot successfully joined this group**",
+                        f"✅ **انضم المساعد بنجاح ♥**",
                     )
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \n\nassistant can't join this group due to many join requests for userbot."
+                        f"<b>🔴 انتظر هناك خطء 🔴 \n\nassistant can't join this group due to many join requests for userbot."
                         f"\n\nor add @{ASSISTANT_NAME} to this group manually then try again.</b>",
                     )
     try:
@@ -504,10 +504,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("🖱 القائمة الرئيسية", callback_data="menu"),
+                    InlineKeyboardButton("🗑 انهاء القائمة", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 قناه البوت ", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],
             ]
         )
@@ -526,7 +526,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🔎 **Searching...**")
+        await lel.edit("🔎 **جاري البحث انتظر...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -556,10 +556,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("🖱 القائمة الرئيسية", callback_data="menu"),
+                    InlineKeyboardButton("🗑 انهاء القائمة", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 قناه البوت ", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],
             ]
         )
@@ -637,10 +637,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("🖱 القائمة الرئيسية", callback_data="menu"),
+                    InlineKeyboardButton("🗑 انهاء القائمة", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 قناه البوت ", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],
             ]
             )
@@ -735,10 +735,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("🖱 القائمة الرئيسية", callback_data="menu"),
+                    InlineKeyboardButton("🗑 انهاء القائمة", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 قناه البوت ", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],
             ]
     )
@@ -888,13 +888,13 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [   
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("🖱 القائمة الرئيسية", callback_data="menu"),
+                    InlineKeyboardButton("🗑 انهاء القائمة", callback_data="cls"),
 
                 ],
                 [
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}")
+                    InlineKeyboardButton("📣 قناه البوت ", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("✨ كروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}")
                 ]                             
             ]
         )
