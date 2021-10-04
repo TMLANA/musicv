@@ -7,7 +7,7 @@ from callsmusic.callsmusic import client as USER
 from config import BOT_USERNAME, SUDO_USERS
 
 
-@Client.on_message(command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot)
+@Client.on_message(command(["انضم", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot)
 @authorized_users_only
 @errors
 async def addchannel(client, message):
@@ -58,7 +58,7 @@ async def rem(client, message):
         return
 
 
-@Client.on_message(command(["userbotleaveall", f"userbotleaveall@{BOT_USERNAME}"]))
+@Client.on_message(command(["غادر", f"userbotleaveall@{BOT_USERNAME}"]))
 async def bye(client, message):
     if message.from_user.id not in SUDO_USERS:
         return
@@ -121,3 +121,7 @@ async def addcchannel(client, message):
     await message.reply_text(
         "<b>helper userbot joined your channel</b>",
     )
+
+
+
+
