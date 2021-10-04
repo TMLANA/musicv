@@ -9,7 +9,7 @@ from helpers.decorators import sudo_users_only, errors
 downloads = os.path.realpath("downloads")
 raw = os.path.realpath("raw_files")
 
-@Client.on_message(command(["rmd", "rmdownloads", "cleardownloads"]) & ~filters.edited)
+@Client.on_message(command(["تنظيف", "اصلاح", "ترسيت"]) & ~filters.edited)
 @errors
 @sudo_users_only
 async def clear_downloads(_, message: Message):
@@ -17,6 +17,9 @@ async def clear_downloads(_, message: Message):
     if ls_dir:
         for file in os.listdir(downloads):
             os.remove(os.path.join(downloads, file))
-        await message.reply_text("✅ **removed all downloaded files**")
+        await message.reply_text("✅ **إزالة جميع الملفات التي تم تنزيلها‌‌**")
     else:
-        await message.reply_text("❌ **no files is downloaded**")
+        await message.reply_text("❌ **لم يتم تنزيل أي ملفات‌‌**")
+
+
+
